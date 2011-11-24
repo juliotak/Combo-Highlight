@@ -1,0 +1,170 @@
+/*--Main Container--*/
+.main_view {
+	float: left;
+	position: relative;
+    /*z-index: 5;*/
+}
+/*--Window/Masking Styles--*/
+.window {
+	height:430px;	width: 679px;
+	overflow: hidden; /*--Hides anything outside of the set width/height--*/
+	position: relative;
+}
+.image_reel {
+	position: absolute;
+	top: 0; left: 0;
+}
+.image_reel img {float: left;}
+
+/*--Paging Styles--*/
+.paging {
+	position: absolute;
+	bottom: 390px; right: 20px;
+	border-radius: 4px;
+	/*z-index: 100;*/ /*--Assures the paging stays on the top layer--*/
+	text-align: center;
+	line-height: 24px;
+	background: #000;
+	display: none; /*--Hidden by default, will be later shown with jQuery--*/
+	font-family: arial, sans-serif;
+	font-size: 80%;
+}
+.paging a {
+	padding: 5px;
+	text-decoration: none;
+	color: #ABABAB;
+}
+.paging a.active {
+	font-weight: bold;
+	color: #FFF;
+	-moz-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+.paging a:hover {font-weight: bold;}
+
+/*--level2 Images--*/
+.level2_imgs UL {
+	position: absolute;
+	margin-top: 260px;
+	*left: 0px;
+}
+.level2_imgs LI {
+	float: left;
+	margin-right: 60px;
+	/* CSS3 Drop Drop Shadow */
+	-moz-box-shadow: 2px 2px 5px #000;
+	-webkit-box-shadow: 2px 2px 5px #000;
+	box-shadow: 2px 2px 5px #000;
+}
+.level2_imgs LI IMG {
+	border: 2px solid #FFF;
+}
+.backCall {
+	position: absolute;
+	padding-left: 12px;
+	margin-top: 45px;
+	color: #FFF;
+	font-family: trebuchet ms;
+	*left: 0px;
+}
+.backCall .title {
+	font-size: 150%;
+}
+.backCall .subTitle {
+	font-size: 120%;
+	margin-bottom: 5px;
+}
+.backCall .price {
+	margin-bottom: 6px;
+	font-size: 250%;
+}
+.backCall SMALL {
+	font-size: 80%;
+	color: #e2e2e2;
+}
+.frontCall {
+	position: absolute;
+	margin: 85px 0 0 -10px;
+	padding: 6px;
+	color: #FFF;
+	font-size: 90%;
+	font-family: trebuchet ms;
+	background: #666;
+	border-radius: 6px;
+	*margin: 85px 0 0 -175px;
+	/* CSS3 Drop Gradient */
+	background: #dbdbdb;
+	/* Mozilla: */
+	background: -moz-linear-gradient(top, #dbdbdb, #7d7d7d);
+	/* Chrome, Safari:*/
+	background: -webkit-gradient(linear, left top, left bottom, from(#dbdbdb), to(#7d7d7d));
+	/* MSIE */
+	filter: progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#dbdbdb', EndColorStr='#7d7d7d', GradientType=0);
+	/* CSS3 Drop Drop Shadow */
+	-moz-box-shadow: 2px 2px 5px #000;
+	-webkit-box-shadow: 2px 2px 5px #000;
+	box-shadow: 2px 2px 5px #000;
+}
+#item01 UL, #item01 .backCall {
+	margin-left: 50px;
+}
+#item02 UL, #item02 .backCall {
+	margin-left: 730px;
+}
+#item03 UL, #item03 .backCall {
+	margin-left: 1410px;
+}
+#item04 UL, #item04 .backCall {
+	margin-left: 2090px;
+}
+.backCall .buttonContainer {
+	margin-top: 12px;
+}
+.frontCall .buttonContainer {
+	margin-top: 6px;
+}
+SPAN.button {
+    display: inline-block;
+}
+a.slidingButton {
+    /* Sliding right image */
+    background: transparent url(../images/btn_t01_rgt.png) no-repeat scroll top right;
+    display: block;
+    height: 25px;
+    padding-right: 15px;
+    text-decoration: none;
+    color: #005da2;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 80%;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+a.slidingButton span {
+    /* Background left image */
+    background: transparent url(../images/btn_t01_lft.png) no-repeat;
+    display: block;
+    line-height: 14px; /* CHANGE THIS VALUE ACCORDING TO BUTTONG HEIGHT */
+    padding: 6px 0 6px 17px;
+    white-space: nowrap;
+}
+a.slidingButton:hover {
+    color: #0092ff;
+}
+.btnMini a.slidingButton {
+    background: transparent url(../images/btn_small_rgt.png) no-repeat scroll top right;
+    padding-right: 9px;
+    height: 19px;
+    font-weight: normal;
+    font-size: 70%;
+    color: #005DA2;
+}
+.btnMini a.slidingButton:hover {
+    color: #0092ff;
+}
+.btnMini a.slidingButton span {
+    /* Background left image */
+    background: transparent url(../images/btn_small_lft.png) no-repeat;
+    line-height: 7px; /* CHANGE THIS VALUE ACCORDING TO BUTTONG HEIGHT */
+    padding: 6px 0 6px 9px;
+}

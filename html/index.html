@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title></title>
+		
+        <link rel="stylesheet" type="text/css" href="../css/styles.css" />
+        <link rel="stylesheet" type="text/css" href="../css/slider.css" />
+		
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
+    </head>
+    <body>
+        <div id="pageBg">
+            <div id="overWrap">
+                <div id="header">
+                </div>
+                <div id="menu">
+                </div>
+                <div id="content">
+                    <div id="leftCol">
+                    </div>
+                    <div id="rightCol">
+                        <script type="text/javascript">
+                        // SLIDER
+                        $(document).ready(function() {
+                        
+                        	//Set Default State of each portfolio piece
+                        	$(".paging").show();
+                        	$(".paging a:first").addClass("active");
+                        		
+                        	//Get size of images, how many there are, then determin the size of the image reel.
+                        	var imageWidth = $(".window").width();
+                        	var imageSum = $(".image_reel img").size();
+                        	var imageReelWidth = imageWidth * imageSum;
+                        	
+                        	//Adjust the image reel to its new size
+                        	$(".image_reel").css({'width' : imageReelWidth});
+                        	
+                        	//Paging + Slider Function
+                        	rotate = function(){	
+                        		var triggerID = $active.attr("rel") - 1; //Get number of times to slide
+                        		var image_reelPosition = triggerID * imageWidth; //Determines the distance the image reel needs to slide
+                        
+                        		$(".paging a").removeClass('active'); //Remove all active class
+                        		$active.addClass('active'); //Add active class (the $active is declared in the rotateSwitch function)
+                        		
+                        		//Slider Animation
+                        		$(".image_reel").animate({ 
+                        			left: -image_reelPosition
+                        		}, 500 );
+                        		
+                        	}; 
+                        	
+                        	//Rotation + Timing Event
+                        	rotateSwitch = function(){		
+                        		play = setInterval(function(){ //Set timer - this will repeat itself every 3 seconds
+                        			$active = $('.paging a.active').next();
+                        			if ( $active.length === 0) { //If paging reaches the end...
+                        				$active = $('.paging a:first'); //go back to first
+                        			}
+                        			rotate(); //Trigger the paging and slider function
+                        		}, 7000); //Timer speed in milliseconds (3 seconds)
+                        	};
+                        	
+                        	rotateSwitch(); //Run function on launch
+                        	
+                        	//On Hover
+                        	$(".image_reel a").hover(function() {
+                        		clearInterval(play); //Stop the rotation
+                        	}, function() {
+                        		rotateSwitch(); //Resume rotation
+                        	});	
+                        	
+                        	//On Click
+                        	$(".paging a").click(function() {	
+                        		$active = $(this); //Activate the clicked paging
+                        		//Reset Timer
+                        		clearInterval(play); //Stop the rotation
+                        		rotate(); //Trigger rotation immediately
+                        		rotateSwitch(); // Resume rotation
+                        		return false; //Prevent browser jump to link anchor
+                        	});	
+                        	
+                        });
+                        </script>
+                        <div id="slider">
+                            <div class="main_view">
+                                <div class="window">
+                                    <div class="image_reel">
+                                        <div class="level2_imgs" id="item01">
+											<img src="../images/trash/slider01.jpg" alt="" />
+											<div class="backCall">
+												<div class="title">Super Promo 30% off</div>
+												<div class="subTitle">San Andres</div>
+												<small>a partir de</small><br/>
+												<div class="price">R$ 3456,78</div>
+												<div class="buttonContainer">
+													<span class="button"><a href="http://www.uol.com.br" class="slidingButton"><span>Saiba mais</span></a></span>
+												</div>
+											</div>
+											<ul>
+												<li>
+													<img src="../images/trash/ho-item001.jpg" />
+													<div class="frontCall">
+														<div class="title">Lorem Ipsum Samet</div>
+														<div class="buttonContainer">
+															<span class="button btnMini"><a href="#" class="slidingButton"><span>Saiba mais</span></a></span>
+														</div>
+													</div>
+												</li>
+												<li>
+													<img src="../images/trash/ho-item002.jpg" />
+													<div class="frontCall">
+														<div class="title">Lorem Ipsum Samet</div>
+														<div class="buttonContainer">
+															<span class="button btnMini"><a href="#" class="slidingButton"><span>Saiba mais</span></a></span>
+														</div>
+													</div>
+												</li>
+												<li>
+													<img src="../images/trash/ho-item003.jpg" />
+													<div class="frontCall">
+														<div class="title">Porto Seguro</div>
+														<div class="buttonContainer">
+															<span class="button btnMini"><a href="#" class="slidingButton"><span>Saiba mais</span></a></span>
+														</div>
+													</div>
+												</li>
+											</ul>
+										</div>
+										<div class="level2_imgs" id="item02">
+											<img src="../images/trash/slider02.jpg" alt="" />
+											<div class="backCall">
+												<div class="title">Sale 30% off</div>
+												<div class="subTitle">Salvador</div>
+												<small>a partir de</small><br/>
+												<div class="price">R$ 1234,78</div>
+												<div class="buttonContainer">
+													<span class="button"><a href="#" class="slidingButton"><span>Saiba mais</span></a></span>
+												</div>
+											</div>
+											<ul>
+												<li>
+													<img src="../images/trash/ho-item003.jpg" />
+													<div class="frontCall">
+														<div class="title">Lorem Ipsum Samet</div>
+														<div class="buttonContainer">
+															<span class="button btnMini"><a href="#" class="slidingButton"><span>Saiba mais</span></a></span>
+														</div>
+													</div>
+												</li>
+												<li>
+													<img src="../images/trash/ho-item002.jpg" />
+													<div class="frontCall">
+														<div class="title">Lorem Ipsum Samet</div>
+														<div class="buttonContainer">
+															<span class="button btnMini"><a href="#" class="slidingButton"><span>Saiba mais</span></a></span>
+														</div>
+													</div>
+												</li>
+												<li>
+													<img src="../images/trash/ho-item001.jpg" />
+													<div class="frontCall">
+														<div class="title">Lorem Ipsum Samet</div>
+														<div class="buttonContainer">
+															<span class="button btnMini"><a href="#" class="slidingButton"><span>Saiba mais</span></a></span>
+														</div>
+													</div>
+												</li>
+											</ul>
+										</div>
+										<div class="level2_imgs" id="item03">
+											<img src="../images/trash/slider03.jpg" alt="" />
+											<div class="backCall">
+												<div class="title">Super Promo 30% off</div>
+												<div class="subTitle">San Andres</div>
+												<small>a partir de</small><br/>
+												<div class="price">R$ 3456,78</div>
+												<div class="buttonContainer">
+													<span class="button"><a href="#" class="slidingButton"><span>Saiba mais</span></a></span>
+												</div>
+											</div>
+											<ul>
+												<li>
+													<img src="../images/trash/ho-item003.jpg" />
+													<div class="frontCall">
+														<div class="title">Lorem Ipsum Samet</div>
+														<div class="buttonContainer">
+															<span class="button btnMini"><a href="#" class="slidingButton"><span>Saiba mais</span></a></span>
+														</div>
+													</div>
+												</li>
+												<li>
+													<img src="../images/trash/ho-item002.jpg" />
+													<div class="frontCall">
+														<div class="title">Lorem Ipsum Samet</div>
+														<div class="buttonContainer">
+															<span class="button btnMini"><a href="#" class="slidingButton"><span>Saiba mais</span></a></span>
+														</div>
+													</div>
+												</li>
+												<li>
+													<img src="../images/trash/ho-item001.jpg" />
+													<div class="frontCall">
+														<div class="title">Lorem Ipsum Samet</div>
+														<div class="buttonContainer">
+															<span class="button btnMini"><a href="#" class="slidingButton"><span>Saiba mais</span></a></span>
+														</div>
+													</div>
+												</li>
+											</ul>
+										</div>
+										<div class="level2_imgs" id="item04">
+											<img src="../images/trash/slider04.jpg" alt="" />
+											<div class="backCall">
+												<div class="title">Sale 30% off</div>
+												<div class="subTitle">Salvador</div>
+												<small>a partir de</small><br/>
+												<div class="price">R$ 4321,78</div>
+												<div class="buttonContainer">
+													<span class="button"><a href="#" class="slidingButton"><span>Saiba mais</span></a></span>
+												</div>
+											</div>
+											<ul>
+												<li>
+													<img src="../images/trash/ho-item003.jpg" />
+													<div class="frontCall">
+														<div class="title">Porto de Galinhas</div>
+														<div class="buttonContainer">
+															<span class="button btnMini"><a href="#" class="slidingButton"><span>Saiba mais</span></a></span>
+														</div>
+													</div>
+												</li>
+												<li>
+													<img src="../images/trash/ho-item002.jpg" />
+													<div class="frontCall">
+														<div class="title">Saída de São Paulo</div>
+														<div class="buttonContainer">
+															<span class="button btnMini"><a href="#" class="slidingButton"><span>Saiba mais</span></a></span>
+														</div>
+													</div>
+												</li>
+												<li>
+													<img src="../images/trash/ho-item001.jpg" />
+													<div class="frontCall">
+														<div class="title">Incluindo Salvador</div>
+														<div class="buttonContainer">
+															<span class="button btnMini"><a href="#" class="slidingButton"><span>Saiba mais</span></a></span>
+														</div>
+													</div>
+												</li>
+											</ul>
+										</div>
+                                    </div>
+                                </div>
+                                <div class="paging">
+                                    <a href="#" rel="1">1</a>
+                                    <a href="#" rel="2">2</a>
+                                    <a href="#" rel="3">3</a>
+                                    <a href="#" rel="4">4</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fixFloat"></div>
+                </div>
+                <div id="footer">
+                </div>
+                <div class="fixFloat"></div>
+            </div>
+        </div>
+                        
+                        
+                        
+    </body>
+</html>
